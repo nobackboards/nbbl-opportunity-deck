@@ -1,0 +1,12 @@
+{
+  "name": "nbbl-presentation-deck",
+  "version": "1.0.0",
+  "description": "Interactive Presentation Deck for the No Backboard Basketball League (NBBL)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "author": "Antigravity",
+  "license": "ISC"
+}
