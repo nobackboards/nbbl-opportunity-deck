@@ -1,1 +1,488 @@
-<meta http-equiv="refresh" content="0; url=./nbbl-presentation-deck/">  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NBBL - Opportunity & Category Vision</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="mode-clean">
+  <!-- Top Navigation Panel -->
+  <header class="top-nav">
+    <div class="logo-container">
+      <img src="assets/logo.png" alt="NBBL Logo" class="brand-logo" onerror="this.style.display='none'">
+      <span class="brand-name">NBBL</span>
+    </div>
+    
+    <div class="deck-controls">
+      <!-- Mode Toggle: Clean vs Detailed -->
+      <div class="toggle-wrapper">
+        <span class="toggle-label clean-label">Vision Focus</span>
+        <label class="switch">
+          <input type="checkbox" id="mode-toggle">
+          <span class="slider round"></span>
+        </label>
+        <span class="toggle-label detailed-label">Strategic Details</span>
+      </div>
+
+      <div class="nav-shortcuts">
+        <button id="fullscreen-btn" class="nav-icon-btn" title="Toggle Fullscreen">
+          <svg viewBox="0 0 24 24" width="20" height="20">
+            <path fill="currentColor" d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Slide Container -->
+  <main class="slide-container">
+    
+    <!-- Slide 1: Cover -->
+    <section class="slide active" id="slide-1" data-index="1">
+      <div class="slide-bg cover-bg"></div>
+      <div class="slide-content cover-slide">
+        <img src="assets/logo.png" alt="NBBL Logo Large" class="hero-logo" onerror="this.style.display='none'">
+        <h1 class="hero-title animate-pop">NO BACKBOARD<br><span class="highlight-red">BASKETBALL LEAGUE</span></h1>
+        <p class="hero-subtitle">The Futsal of Basketball & category Creator</p>
+        <div class="cover-tagline">
+          <span class="tag">0 to 1 Category Innovation</span>
+          <span class="tag">Showcase Gym + Content Engine</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2: Category & Philosophy -->
+    <section class="slide" id="slide-2" data-index="2">
+      <div class="slide-content two-column">
+        <div class="col-left">
+          <span class="slide-category">Category Philosophy</span>
+          <h2 class="slide-title">REMIXING<br>THE GAME</h2>
+          <p class="lead-text">Removing the backboard and reducing the hoop to 16 inches (UHoop) changes the geometry of the sport.</p>
+          <p class="body-text">NBBL doesn't replace traditional basketball; it complements it. This creates a faster, more challenging game that rewards: </p>
+          <ul class="benefit-list">
+            <li><strong>Precision & Touch:</strong> High-arcing, clean swishes.</li>
+            <li><strong>Decision Making:</strong> Instant passing and rapid shot setup.</li>
+            <li><strong>Skill Transfer:</strong> Translates directly back to traditional hoops.</li>
+          </ul>
+        </div>
+        <div class="col-right flex-center">
+          <div class="brand-card glass">
+            <div class="brand-card-header">
+              <span class="card-icon">⚡</span>
+              <h3>The Futsal of Basketball</h3>
+            </div>
+            <p>Just as Futsal developed world-class soccer legends (Pele, Ronaldinho) by training them in tight spaces with a heavier ball, No Backboard Basketball serves as the ultimate developmental environment for basketball touch, speed, and precision.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3: The Problem -->
+    <section class="slide" id="slide-3" data-index="3">
+      <div class="slide-content two-column">
+        <div class="col-left">
+          <span class="slide-category">The Problem</span>
+          <h2 class="slide-title">AN EXTRACTIVE<br><span class="highlight-red">SYSTEM</span></h2>
+          <p class="lead-text">The traditional basketball pipeline concentrates massive wealth at the very top, while leaving grassroots creators and communities behind.</p>
+          <div class="problem-card">
+            <div class="problem-num">01</div>
+            <div>
+              <h4>Value Disconnection</h4>
+              <p>Athletes, creators, and fans generate billions of dollars in attention but own 0% of the underlying assets or distribution infrastructure.</p>
+            </div>
+          </div>
+          <div class="problem-card">
+            <div class="problem-num">02</div>
+            <div>
+              <h4>Developmental Deficit</h4>
+              <p>Standard basketball training over-emphasizes raw athleticism over shooting touch, decision-making, and high-efficiency spatial awareness.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-right flex-center">
+          <div class="stat-highlight-box glass">
+            <div class="stat-large">$53B+</div>
+            <div class="stat-label">Generated on courts with limited local economic capture</div>
+            <hr class="separator">
+            <p class="quote">"Value is created by communities, but ownership remains centralized. We are changing the geometry of ownership."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 4: The Solution -->
+    <section class="slide" id="slide-4" data-index="4">
+      <div class="slide-content grid-layout">
+        <div class="grid-header">
+          <span class="slide-category">The Solution</span>
+          <h2 class="slide-title">SHOWCASE GYM & CONTENT ENGINE</h2>
+          <p class="lead-text">A physical space engineered for premium training, combined with a digital studio capturing and monetizing every single session.</p>
+        </div>
+        <div class="grid-body-4">
+          <div class="feature-box glass">
+            <div class="box-num">01</div>
+            <h3>Primary Tenant Status</h3>
+            <p>Full operations in a metro Phoenix high school gym facility. Dedicated access morning, noon, and night.</p>
+          </div>
+          <div class="feature-box glass">
+            <div class="box-num">02</div>
+            <h3>Eskimo Content Strategy</h3>
+            <p>Every session is captured, processed, and distributed. A single capture event generates clips, mixtapes, courses, and ads.</p>
+          </div>
+          <div class="feature-box glass">
+            <div class="box-num">03</div>
+            <h3>Physical & Digital Nodes</h3>
+            <p>A training showroom where community, local operators, and technology integrate to build verified unit economics.</p>
+          </div>
+          <div class="feature-box glass">
+            <div class="box-num">04</div>
+            <h3>Aligned Incentives</h3>
+            <p>Sharing monetization downstream with athletes and partners to build community-driven loyalty and network effects.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 5: The Cohort Operating Model -->
+    <section class="slide" id="slide-5" data-index="5">
+      <div class="slide-content">
+        <div class="slide-header">
+          <span class="slide-category">Operating Architecture</span>
+          <h2 class="slide-title">COHORT-BASED PROGRAM LINES</h2>
+          <p class="lead-text">Diverse, recurring participation channels designed to build community density and steady revenue.</p>
+        </div>
+        <div class="cohort-grid">
+          <div class="cohort-card glass">
+            <div class="cohort-tag red">Youth</div>
+            <h3>Youth Skills Training</h3>
+            <p class="cohort-desc">Anchored on the Founder's proprietary 1+3+5 Practice Approach. Ramps to monthly members + Text-In slots.</p>
+            <div class="detailed-only mt-2">
+              <div class="metric-item"><strong>Target:</strong> 230 Members</div>
+              <div class="metric-item"><strong>Price:</strong> $150/mo base</div>
+              <div class="metric-item"><strong>Mature Rev:</strong> ~$40k/mo</div>
+            </div>
+          </div>
+          <div class="cohort-card glass">
+            <div class="cohort-tag yellow">Adult</div>
+            <h3>Adult Bootcamp</h3>
+            <p class="cohort-desc">Premium recreational structured training and competitive play for adults 18+ with two-month commitment.</p>
+            <div class="detailed-only mt-2">
+              <div class="metric-item"><strong>Target:</strong> 100 Members</div>
+              <div class="metric-item"><strong>Price:</strong> $134/mo base</div>
+              <div class="metric-item"><strong>Mature Rev:</strong> ~$18.8k/mo</div>
+            </div>
+          </div>
+          <div class="cohort-card glass">
+            <div class="cohort-tag blue">NIL Academy</div>
+            <h3>ARRA Powered by NBBL</h3>
+            <p class="cohort-desc">64 elite high-school sophomores training and competing in made-for-content league seasons.</p>
+            <div class="detailed-only mt-2">
+              <div class="metric-item"><strong>Structure:</strong> 8 Teams of 8</div>
+              <div class="metric-item"><strong>Partner:</strong> Arizona Preps</div>
+              <div class="metric-item"><strong>NIL Pool:</strong> 20% share</div>
+            </div>
+          </div>
+          <div class="cohort-card glass">
+            <div class="cohort-tag grey">Events</div>
+            <h3>Club Ball Challenge</h3>
+            <p class="cohort-desc">Weekly recurring tournaments for external club teams. Broadens audience and generates high-margin cash flow.</p>
+            <div class="detailed-only mt-2">
+              <div class="metric-item"><strong>Cadence:</strong> 4 Events/mo</div>
+              <div class="metric-item"><strong>Price:</strong> $50/athlete</div>
+              <div class="metric-item"><strong>Mature Rev:</strong> ~$6.4k/mo gross, ~$5.4k/mo net</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 6: Partner Network -->
+    <section class="slide" id="slide-6" data-index="6">
+      <div class="slide-content two-column">
+        <div class="col-left">
+          <span class="slide-category">Strategic Collaboration</span>
+          <h2 class="slide-title">THE PARTNER<br>NETWORK</h2>
+          <p class="lead-text">NBBL integrates leading sports marketing networks and AI technology platforms to scale operations efficiently.</p>
+          <div class="partner-row glass">
+            <div class="partner-logo">ARRA</div>
+            <div>
+              <h4>Anthony Ray Management / Arizona Preps</h4>
+              <p>Exclusive Outsource Management Agreement to manage ARRA. Provides access to elite high school prospects and prime media channels.</p>
+            </div>
+          </div>
+          <div class="partner-row glass">
+            <div class="partner-logo">GF</div>
+            <div>
+              <h4>GameFace</h4>
+              <p>Technology partner providing premium digital streaming, multi-angle live production, and automated facility cameras.</p>
+            </div>
+          </div>
+          <div class="partner-row glass">
+            <div class="partner-logo">BB</div>
+            <div>
+              <h4>BigBee AI</h4>
+              <p>Technical partner providing AI-assisted automatic clipping, player highlights, tagging, and automated social distribution.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-right flex-center">
+          <div class="concept-map glass">
+            <h3>Coordinated Production Flow</h3>
+            <div class="flow-step">
+              <div class="step-circle">1</div>
+              <div><strong>Capture:</strong> Automated GameFace cameras stream play.</div>
+            </div>
+            <div class="flow-step">
+              <div class="step-circle">2</div>
+              <div><strong>Clip:</strong> BigBee AI tags, cuts, and indexes player plays.</div>
+            </div>
+            <div class="flow-step">
+              <div class="step-circle">3</div>
+              <div><strong>Distribute:</strong> Dynamic mixtapes publish on channels & athlete portfolios.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 7: Traction & Demand -->
+    <section class="slide" id="slide-7" data-index="7">
+      <div class="slide-content grid-layout">
+        <div class="grid-header">
+          <span class="slide-category">Traction & Demand</span>
+          <h2 class="slide-title">VALIDATED DEMAND SIGNALS</h2>
+          <p class="lead-text">Proof of category relevance and organic user engagement before commercial deployment.</p>
+        </div>
+        <div class="grid-body-3">
+          <div class="traction-card glass">
+            <div class="traction-num">2.35M+</div>
+            <h4>Organic Video Views</h4>
+            <p>Captured across platforms with $0 paid marketing. Includes a single high school NIL reel generating 1.1M views, demonstrating huge viral potential.</p>
+          </div>
+          <div class="traction-card glass">
+            <div class="traction-num">$0.07</div>
+            <h4>Cost Per Lead (CPL)</h4>
+            <p>Meta Ads test achieved a 7.71% Click-Through Rate. Yielding 7x to 20x higher marketing efficiency than youth sports industry benchmarks.</p>
+          </div>
+          <div class="traction-card glass">
+            <div class="traction-num">12+</div>
+            <h4>Athlete Transcripts</h4>
+            <p>Documented pilot outcomes showing touch improvement, rapid transition to UHoops, and direct transferability back to traditional games.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 8: Facility Photo Gallery -->
+    <section class="slide" id="slide-8" data-index="8">
+      <div class="slide-content">
+        <div class="slide-header">
+          <span class="slide-category">Physical Infrastructure</span>
+          <h2 class="slide-title">THE GILBERT SHOWCASE FACILITY</h2>
+          <p class="lead-text">High-capacity high school gymnasium in Gilbert, AZ. Anchor tenant status with dedicated content production windows.</p>
+        </div>
+        
+        <!-- Interactive Gallery -->
+        <div class="gallery-container glass">
+          <div class="gallery-viewer">
+            <img id="gallery-main-img" src="assets/images/1000015877.jpg" alt="Showcase Facility Image">
+            <div class="gallery-info">
+              <span id="gallery-counter">Image 1 of 15</span>
+            </div>
+          </div>
+          <div class="gallery-nav-buttons">
+            <button id="gallery-prev" class="gallery-btn">&larr; Prev</button>
+            <button id="gallery-next" class="gallery-btn">Next &rarr;</button>
+          </div>
+          <div class="gallery-thumbnails" id="gallery-thumbs">
+            <!-- Thumbnails inserted by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 9: Economic Engine -->
+    <section class="slide" id="slide-9" data-index="9">
+      <div class="slide-content">
+        
+        <!-- Clean Mode View: Flywheel -->
+        <div class="clean-only full-height-flex">
+          <div class="slide-header text-center">
+            <span class="slide-category">The Compound Moat</span>
+            <h2 class="slide-title">THE ECOSYSTEM FLYWHEEL</h2>
+            <p class="lead-text">How value compounds and multiplies across physical and digital layers.</p>
+          </div>
+          <div class="flywheel-diagram">
+            <div class="fw-node"><strong>Category</strong><span class="fw-desc">Stewardship Moat</span></div>
+            <div class="fw-arrow">&rarr;</div>
+            <div class="fw-node"><strong>Content</strong><span class="fw-desc">IP & Mixtapes</span></div>
+            <div class="fw-arrow">&rarr;</div>
+            <div class="fw-node"><strong>Community</strong><span class="fw-desc">Elite Athlete Network</span></div>
+            <div class="fw-arrow">&rarr;</div>
+            <div class="fw-node"><strong>Commerce</strong><span class="fw-desc">Merchandise & Subscriptions</span></div>
+            <div class="fw-arrow">&rarr;</div>
+            <div class="fw-node"><strong>Ownership</strong><span class="fw-desc">Aligned Prosperity</span></div>
+          </div>
+          <p class="flywheel-caption">Each layer feeds the next, creating a self-reinforcing circle where content scales community, community scales commerce, and commerce funds physical infrastructure.</p>
+        </div>
+
+        <!-- Detailed Mode View: Projections & SAFE -->
+        <div class="detailed-only">
+          <div class="slide-header">
+            <span class="slide-category">Financial projections & Runway</span>
+            <h2 class="slide-title">18-MONTH FINANCIAL ENGINE</h2>
+            <p class="lead-text">Operating runway to scale the Phoenix Showcase Gym and establish category unit economics.</p>
+          </div>
+          
+          <div class="financial-section">
+            <div class="chart-container glass">
+              <h3>18-Month Projections (NOI)</h3>
+              <div id="projection-chart"></div>
+            </div>
+            
+            <div class="projections-summary glass">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Scenario Summary</th>
+                    <th>Base Case</th>
+                    <th>Low (78%)</th>
+                    <th>High (115%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Total Gross Rev</td>
+                    <td>$5,374,359</td>
+                    <td>$4,192,000</td>
+                    <td>$6,180,513</td>
+                  </tr>
+                  <tr>
+                    <td>COGS</td>
+                    <td>($632,533)</td>
+                    <td>($493,376)</td>
+                    <td>($727,413)</td>
+                  </tr>
+                  <tr>
+                    <td>ARRA Deductions</td>
+                    <td>($993,648)</td>
+                    <td>($775,045)</td>
+                    <td>($1,142,695)</td>
+                  </tr>
+                  <tr class="highlight-row">
+                    <td>Net Revenue</td>
+                    <td>$3,748,178</td>
+                    <td>$2,923,579</td>
+                    <td>$4,310,404</td>
+                  </tr>
+                  <tr>
+                    <td>Total OpEx</td>
+                    <td>($2,189,627)</td>
+                    <td>($2,189,627)</td>
+                    <td>($2,189,627)</td>
+                  </tr>
+                  <tr class="highlight-row-alt">
+                    <td>Cumulative NOI</td>
+                    <td>$1,558,550</td>
+                    <td>$733,951</td>
+                    <td>$2,120,777</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="financial-notes">
+                <span><strong>Breakeven:</strong> Month 6</span>
+                <span><strong>Cashflow Positive:</strong> Month 4</span>
+                <span><strong>Mature Monthly NOI:</strong> $30,232 (M18)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="safe-details-card glass">
+            <h4>Strategic Development Path</h4>
+            <div class="safe-grid">
+              <div>
+                <h5>Showroom Ignition</h5>
+                <p>Establishing the Phoenix Showcase Gym to capture daily content, prove core cohort unit economics, and build the physical showroom for multi-regional scaling.</p>
+              </div>
+              <div>
+                <h5>Use of Runway</h5>
+                <p>Pre-Launch CapEx (~$85k) for facility equipment and streaming production setup + operations capital through cash-flow-positive maturity (Month 4).</p>
+              </div>
+              <div>
+                <h5>Future Scale Phase</h5>
+                <p>Providing the verified data package and operational blueprints required for regional replication, PlayCenter app scaling, and multi-market expansion.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Slide 10: Founder & Team -->
+    <section class="slide" id="slide-10" data-index="10">
+      <div class="slide-content two-column">
+        <div class="col-left">
+          <span class="slide-category">Leadership Team</span>
+          <h2 class="slide-title">THE FOUNDER<br>& PARTNERS</h2>
+          <div class="founder-card glass">
+            <div class="founder-info">
+              <h3>Mark Tee Armstrong</h3>
+              <span class="title">Founder & General Manager</span>
+              <p>30+ years basketball experience. Captained the famous 1987–88 LMU Lions (Hall of Fame induction 2026). Developed the No Backboard method over 22 years; named inventor on the USPTO category patent.</p>
+            </div>
+          </div>
+          <div class="team-grid">
+            <div class="team-card glass">
+              <h4>Michael Evans</h4>
+              <span>Fractional CFO</span>
+            </div>
+            <div class="team-card glass">
+              <h4>Aaron Eisman</h4>
+              <span>Eisman Digital (Fractional CMO)</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-right flex-center">
+          <div class="cta-box text-center">
+            <img src="assets/mascot.png" alt="NBBL Mascot" class="cta-mascot" onerror="this.style.display='none'">
+            <h3 class="highlight-yellow">CHANGE THE GAME.<br>THEN CHANGE COMMUNITIES.</h3>
+            <p>Collaborate with the category leader to establish a new basketball ecosystem.</p>
+            <div class="contact-details">
+              <strong>Mark Tee Armstrong</strong><br>
+              <a href="mailto:mark@nobackboard.com">mark@nobackboard.com</a><br>
+              <a href="https://nobackboard.com" target="_blank">nobackboard.com</a>
+            </div>
+            <div class="social-handles">
+              <span>@nobackboards</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation Control Panel -->
+  <footer class="bottom-controls">
+    <div class="nav-arrows">
+      <button id="prev-btn" class="nav-btn" disabled>&larr; Prev</button>
+      <button id="next-btn" class="nav-btn">Next &rarr;</button>
+    </div>
+    
+    <div class="slide-indicator" id="slide-indicator">
+      <!-- Dot indicators created dynamically -->
+    </div>
+    
+    <div class="keyboard-guide">
+      Use <kbd>&larr;</kbd> <kbd>&rarr;</kbd> or <kbd>Space</kbd>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
