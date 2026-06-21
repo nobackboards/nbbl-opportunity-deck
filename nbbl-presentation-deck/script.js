@@ -179,9 +179,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Low Case: Net Rev $3.57M, OpEx $1.75M, NOI $1.82M
     // High Case: Net Rev $5.27M, OpEx $1.75M, NOI $3.52M
     const data = [
-      { label: 'Low (78%)', netRev: 3.57, opex: 1.75, noi: 1.82 },
-      { label: 'Base Case', netRev: 4.58, opex: 1.75, noi: 2.83 },
-      { label: 'High (115%)', netRev: 5.27, opex: 1.75, noi: 3.52 }
+      { label: 'Low (78%)', netRev: 2.92, opex: 2.19, noi: 0.73 },
+      { label: 'Base Case', netRev: 3.75, opex: 2.19, noi: 1.56 },
+      { label: 'High (115%)', netRev: 4.31, opex: 2.19, noi: 2.12 }
     ];
 
     const width = 500;
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const chartWidth = width - paddingLeft - paddingRight;
     const chartHeight = height - paddingTop - paddingBottom;
-    const maxVal = 6.0; // Max vertical scale in $ Millions
+    const maxVal = 5.0; // Max vertical scale in $ Millions
 
     let svgHtml = `<svg viewBox="0 0 ${width} ${height}" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">`;
 

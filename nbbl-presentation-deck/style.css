@@ -74,13 +74,12 @@ strong {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 3rem;
-  background: linear-gradient(to bottom, rgba(8, 8, 9, 0.95), rgba(8, 8, 9, 0));
+  padding: 1rem 3rem;
+  background: rgba(8, 8, 9, 0.98);
+  border-bottom: 1px solid var(--bg-card-border);
   z-index: 100;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
+  flex-shrink: 0;
 }
 
 .logo-container {
@@ -227,25 +226,40 @@ body.mode-detailed .clean-label {
 .slide-container {
   flex: 1;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6rem 3rem 5rem;
-  width: 100vw;
+  width: 100%;
+  overflow: hidden;
 }
 
 .slide {
   position: absolute;
-  top: 6rem;
-  bottom: 5rem;
-  left: 3rem;
-  right: 3rem;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   opacity: 0;
   visibility: hidden;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
   display: flex;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+  padding: 1.5rem 3rem;
+}
+
+/* Custom Scrollbar for slides */
+.slide::-webkit-scrollbar {
+  width: 6px;
+}
+.slide::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.01);
+}
+.slide::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+.slide::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .slide.active {
@@ -258,37 +272,38 @@ body.mode-detailed .clean-label {
 .slide-content {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .slide-category {
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--color-red);
   letter-spacing: 0.15em;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   display: block;
 }
 
 .slide-title {
-  font-size: 3.5rem;
-  line-height: 1;
-  margin-bottom: 1.5rem;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  line-height: 1.05;
+  margin-bottom: 0.5rem;
   color: var(--color-white);
 }
 
 .lead-text {
-  font-size: 1.25rem;
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
   font-weight: 300;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   color: rgba(255, 255, 255, 0.85);
 }
 
 .body-text {
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -297,15 +312,15 @@ body.mode-detailed .clean-label {
   background: var(--bg-card);
   backdrop-filter: blur(20px);
   border: 1px solid var(--bg-card-border);
-  border-radius: 16px;
-  padding: 2rem;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
 /* Two-Column Layout */
 .two-column {
   display: flex;
-  gap: 4rem;
+  gap: 2rem;
   align-items: center;
 }
 
@@ -366,14 +381,14 @@ body.mode-detailed .clean-label {
 }
 
 .hero-title {
-  font-size: 5rem;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   line-height: 0.95;
   margin-bottom: 1rem;
   letter-spacing: 0.02em;
 }
 
 .hero-subtitle {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.6);
@@ -534,24 +549,25 @@ body.mode-detailed .clean-label {
 .cohort-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .cohort-card {
   display: flex;
   flex-direction: column;
-  height: 290px;
+  height: 235px;
+  padding: 1rem;
 }
 
 .cohort-tag {
   align-self: flex-start;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
-  padding: 0.25rem 0.75rem;
+  padding: 0.2rem 0.5rem;
   border-radius: 50px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .cohort-tag.red { background: rgba(231, 9, 16, 0.2); color: var(--color-red); border: 1px solid var(--color-red); }
@@ -560,19 +576,19 @@ body.mode-detailed .clean-label {
 .cohort-tag.grey { background: rgba(128, 128, 128, 0.2); color: var(--color-white); border: 1px solid var(--color-grey); }
 
 .cohort-card h3 {
-  font-size: 1.35rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
 }
 
 .cohort-desc {
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   flex-grow: 1;
 }
 
 .metric-item {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.9);
-  padding: 0.2rem 0;
+  padding: 0.15rem 0;
 }
 
 .mt-2 { margin-top: 0.75rem; }
@@ -580,20 +596,20 @@ body.mode-detailed .clean-label {
 /* Slide 6: Partner Network Row */
 .partner-row {
   display: flex;
-  gap: 1.5rem;
-  margin-bottom: 1rem;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
   align-items: center;
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
 }
 
 .partner-logo {
   font-family: var(--font-header);
-  font-size: 1.5rem;
-  width: 50px;
-  height: 50px;
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -603,12 +619,12 @@ body.mode-detailed .clean-label {
 }
 
 .partner-row h4 {
-  font-size: 1.05rem;
-  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.15rem;
 }
 
 .partner-row p {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
 .concept-map {
@@ -835,22 +851,22 @@ body.mode-detailed .clean-label {
 /* Slide 9: Economic Engine - Detailed Projections */
 .financial-section {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: stretch;
-  height: 250px;
-  margin-bottom: 1rem;
+  height: 195px;
+  margin-bottom: 0.75rem;
 }
 
 .chart-container {
   flex: 1.1;
-  padding: 1.25rem;
+  padding: 0.75rem;
   display: flex;
   flex-direction: column;
 }
 
 .chart-container h3 {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
 }
 
 #projection-chart {
@@ -868,7 +884,7 @@ body.mode-detailed .clean-label {
 
 .projections-summary {
   flex: 0.9;
-  padding: 1.25rem;
+  padding: 0.75rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -881,10 +897,10 @@ body.mode-detailed .clean-label {
 
 .projections-summary th {
   text-align: right;
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.25rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -894,8 +910,8 @@ body.mode-detailed .clean-label {
 
 .projections-summary td {
   text-align: right;
-  font-size: 0.85rem;
-  padding: 0.4rem 0;
+  font-size: 0.76rem;
+  padding: 0.25rem 0;
   color: rgba(255, 255, 255, 0.85);
 }
 
@@ -919,28 +935,29 @@ body.mode-detailed .clean-label {
 .financial-notes {
   display: flex;
   justify-content: space-between;
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 .safe-details-card {
-  padding: 1.25rem 2rem;
+  padding: 0.75rem 1.5rem;
 }
 
 .safe-details-card h4 {
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: var(--color-red);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.35rem;
   border-bottom: 1px solid rgba(231, 9, 16, 0.2);
-  padding-bottom: 0.25rem;
+  padding-bottom: 0.2rem;
 }
 
 .safe-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .safe-grid h5 {
@@ -959,47 +976,48 @@ body.mode-detailed .clean-label {
 /* Slide 10: Founder & CTA Custom Styles */
 .founder-card {
   display: flex;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
   border-left: 4px solid var(--color-red);
+  padding-left: 1rem;
 }
 
 .founder-info h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.25rem;
+  font-size: 1.2rem;
+  margin-bottom: 0.15rem;
 }
 
 .founder-info .title {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--color-red);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 700;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.25rem;
   display: block;
 }
 
 .founder-info p {
-  font-size: 0.9rem;
+  font-size: 0.82rem;
 }
 
 .team-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .team-card {
-  padding: 1rem;
+  padding: 0.5rem 0.75rem;
 }
 
 .team-card h4 {
-  font-size: 1.1rem;
-  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.15rem;
 }
 
 .team-card span {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
 }
@@ -1010,8 +1028,39 @@ body.mode-detailed .clean-label {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  box-shadow: 0 0 40px var(--bg-card-glow-red);
+  gap: 0.5rem;
+  background: var(--color-blue);
+  color: var(--color-white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.25rem 1rem;
+  box-shadow: 0 0 30px rgba(0, 146, 211, 0.3);
+}
+
+.cta-box p {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.82rem;
+}
+
+.cta-box h3.highlight-yellow {
+  color: var(--color-yellow);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cta-box .contact-details {
+  color: var(--color-white);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.cta-box .contact-details a {
+  color: var(--color-yellow);
+  font-weight: 600;
+}
+
+.cta-box .social-handles {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.05rem;
 }
 
 .text-center {
@@ -1019,24 +1068,20 @@ body.mode-detailed .clean-label {
 }
 
 .cta-mascot {
-  height: 100px;
+  height: 80px;
   width: auto;
   object-fit: contain;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .cta-box h3 {
-  font-size: 2rem;
-  line-height: 1;
-}
-
-.cta-box p {
-  font-size: 1rem;
+  font-size: 1.35rem;
+  line-height: 1.1;
 }
 
 .contact-details {
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 0.82rem;
+  line-height: 1.35;
 }
 
 .contact-details a {
@@ -1062,13 +1107,11 @@ body.mode-detailed .clean-label {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 3rem;
-  background: rgba(8, 8, 9, 0.95);
+  background: rgba(8, 8, 9, 0.98);
   border-top: 1px solid var(--bg-card-border);
   z-index: 100;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  position: relative;
+  flex-shrink: 0;
 }
 
 .nav-arrows {
@@ -1142,22 +1185,11 @@ kbd {
   }
   
   .slide-container {
-    padding-top: 8rem;
-    overflow-y: auto;
+    overflow: hidden;
   }
   
   .slide {
-    position: relative;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin-bottom: 2rem;
-    display: none;
-  }
-  
-  .slide.active {
-    display: flex;
+    padding: 1.5rem;
   }
   
   .cohort-grid {
@@ -1210,7 +1242,7 @@ kbd {
   }
   
   .slide-container {
-    padding-top: 10rem;
+    /* No padding adjustment needed */
   }
   
   .hero-title {
