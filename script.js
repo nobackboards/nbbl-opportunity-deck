@@ -1,4 +1,4 @@
-// Slide Deck Navigation and Interactive Elements Controller
+// NBBL Presentation Opportunity Deck - Interactive Controller (Newport Beach 2026 Edition)
 
 document.addEventListener('DOMContentLoaded', () => {
   // --- Slide Deck Logic ---
@@ -10,7 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentSlideIndex = 1;
   const totalSlides = slides.length;
 
-  // Create dot indicators
+  // Clear existing dots in indicator
+  slideIndicator.innerHTML = '';
+
+  // Create dot indicators dynamically
   for (let i = 1; i <= totalSlides; i++) {
     const dot = document.createElement('button');
     dot.classList.add('indicator-dot');
@@ -37,6 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
         dot.classList.remove('active');
       }
     });
+    
+    // Trigger animations or chart draws when switching slides
+    if (currentSlideIndex === 12) {
+      drawProjectionsChart();
+    }
   }
 
   function goToSlide(index) {
@@ -64,6 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Keyboard navigation
   document.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
     if (e.key === 'ArrowRight' || e.key === ' ') {
       e.preventDefault();
       goToSlide(currentSlideIndex + 1);
@@ -75,30 +85,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- View Mode Toggle Logic (Clean vs Detailed) ---
   const modeToggle = document.getElementById('mode-toggle');
-  
-  modeToggle.addEventListener('change', () => {
-    if (modeToggle.checked) {
-      document.body.classList.remove('mode-clean');
-      document.body.classList.add('mode-detailed');
-    } else {
-      document.body.classList.remove('mode-detailed');
-      document.body.classList.add('mode-clean');
-    }
-  });
+  if (modeToggle) {
+    modeToggle.addEventListener('change', () => {
+      if (modeToggle.checked) {
+        document.body.classList.remove('mode-clean');
+        document.body.classList.add('mode-detailed');
+      } else {
+        document.body.classList.remove('mode-detailed');
+        document.body.classList.add('mode-clean');
+      }
+    });
+  }
 
   // --- Fullscreen Toggle Logic ---
   const fullscreenBtn = document.getElementById('fullscreen-btn');
-  fullscreenBtn.addEventListener('click', () => {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().catch(err => {
-        console.error(`Error enabling fullscreen: ${err.message}`);
+  if (fullscreenBtn) {
+    fullscreenBtn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.error(`Error enabling fullscreen: ${err.message}`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    });
+  }
+
+  // --- Slide 7: Interactive Media Panel (Video vs Gallery) ---
+  const mediaTabs = document.querySelectorAll('.media-tab');
+  const mediaPanels = document.querySelectorAll('.media-panel');
+
+  mediaTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const targetPanel = tab.getAttribute('data-panel');
+      
+      mediaTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      
+      mediaPanels.forEach(panel => {
+        if (panel.getAttribute('id') === `panel-${targetPanel}`) {
+          panel.style.display = 'block';
+          panel.classList.add('active');
+        } else {
+          panel.style.display = 'none';
+          panel.classList.remove('active');
+        }
       });
-    } else {
-      document.exitFullscreen();
-    }
+    });
   });
 
-  // --- Facility Image Gallery Logic ---
+  // --- Facility Image Gallery Logic with Thumbnails ---
   const facilityImages = [
     '1000015877.jpg',
     '1000015883.jpg',
@@ -125,28 +161,34 @@ document.addEventListener('DOMContentLoaded', () => {
   
   let currentImgIndex = 0;
 
-  // Build thumbnails
-  facilityImages.forEach((imgFile, idx) => {
-    const imgElement = document.createElement('img');
-    imgElement.src = `assets/images/${imgFile}`;
-    imgElement.alt = `Thumbnail ${idx + 1}`;
-    imgElement.classList.add('thumb');
-    if (idx === 0) imgElement.classList.add('active');
-    
-    imgElement.addEventListener('click', () => {
-      selectImage(idx);
+  // Build thumbnails dynamically
+  if (thumbsContainer) {
+    thumbsContainer.innerHTML = '';
+    facilityImages.forEach((imgFile, idx) => {
+      const imgElement = document.createElement('img');
+      imgElement.src = `assets/images/${imgFile}`;
+      imgElement.alt = `Thumbnail ${idx + 1}`;
+      imgElement.classList.add('thumb');
+      if (idx === 0) imgElement.classList.add('active');
+      
+      imgElement.addEventListener('click', () => {
+        selectImage(idx);
+      });
+      thumbsContainer.appendChild(imgElement);
     });
-    thumbsContainer.appendChild(imgElement);
-  });
-
-  const thumbs = document.querySelectorAll('.thumb');
+  }
 
   function selectImage(index) {
     if (index < 0 || index >= facilityImages.length) return;
     currentImgIndex = index;
-    mainImg.src = `assets/images/${facilityImages[currentImgIndex]}`;
-    counterSpan.textContent = `Image ${currentImgIndex + 1} of ${facilityImages.length}`;
+    if (mainImg) {
+      mainImg.src = `assets/images/${facilityImages[currentImgIndex]}`;
+    }
+    if (counterSpan) {
+      counterSpan.textContent = `Image ${currentImgIndex + 1} of ${facilityImages.length}`;
+    }
     
+    const thumbs = document.querySelectorAll('.thumb');
     thumbs.forEach((thumb, idx) => {
       if (idx === currentImgIndex) {
         thumb.classList.add('active');
@@ -157,17 +199,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  prevImgBtn.addEventListener('click', () => {
-    let nextIndex = currentImgIndex - 1;
-    if (nextIndex < 0) nextIndex = facilityImages.length - 1;
-    selectImage(nextIndex);
-  });
+  if (prevImgBtn && nextImgBtn) {
+    prevImgBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      let nextIndex = currentImgIndex - 1;
+      if (nextIndex < 0) nextIndex = facilityImages.length - 1;
+      selectImage(nextIndex);
+    });
 
-  nextImgBtn.addEventListener('click', () => {
-    let nextIndex = currentImgIndex + 1;
-    if (nextIndex >= facilityImages.length) nextIndex = 0;
-    selectImage(nextIndex);
-  });
+    nextImgBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      let nextIndex = currentImgIndex + 1;
+      if (nextIndex >= facilityImages.length) nextIndex = 0;
+      selectImage(nextIndex);
+    });
+  }
 
   // --- SVG Financial Projections Chart Logic ---
   function drawProjectionsChart() {
@@ -175,9 +221,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!chartDiv) return;
 
     // Financial numbers from CSV summary
-    // Base Case: Net Rev $4.58M, OpEx $1.75M, NOI $2.83M
-    // Low Case: Net Rev $3.57M, OpEx $1.75M, NOI $1.82M
-    // High Case: Net Rev $5.27M, OpEx $1.75M, NOI $3.52M
     const data = [
       { label: 'Low (78%)', netRev: 3.10, opex: 2.21, noi: 0.89 },
       { label: 'Base Case', netRev: 3.97, opex: 2.21, noi: 1.76 },
@@ -204,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const y = chartHeight + paddingTop - (chartHeight * (val / maxVal));
       svgHtml += `
         <line x1="${paddingLeft}" y1="${y}" x2="${width - paddingRight}" y2="${y}" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1" />
-        <text x="${paddingLeft - 8}" y="${y + 4}" fill="rgba(255, 255, 255, 0.4)" font-size="8" text-anchor="end">$${val.toFixed(1)}M</text>
+        <text x="${paddingLeft - 8}" y="${y + 3}" fill="rgba(255, 255, 255, 0.4)" font-size="8" text-anchor="end" font-weight="700">$${val.toFixed(1)}M</text>
       `;
     }
 
@@ -231,17 +274,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const noiY = chartHeight + paddingTop - noiHeight;
 
       svgHtml += `
-        <!-- Net Revenue Bar (Base color or subtle tint) -->
+        <!-- Net Revenue Bar -->
         <rect x="${revX}" y="${revY}" width="${barWidth}" height="${revHeight}" class="chart-bar-base" rx="2" />
-        <text x="${revX + barWidth/2}" y="${revY - 4}" class="chart-value">$${group.netRev.toFixed(2)}M</text>
+        <text x="${revX + barWidth/2}" y="${revY - 4}" class="chart-value">$${group.netRev.toFixed(2)}</text>
 
-        <!-- OpEx Bar (Greyed out) -->
+        <!-- OpEx Bar -->
         <rect x="${opexX}" y="${opexY}" width="${barWidth}" height="${opexHeight}" class="chart-bar-low" rx="2" />
-        <text x="${opexX + barWidth/2}" y="${opexY - 4}" class="chart-value">$${group.opex.toFixed(2)}M</text>
+        <text x="${opexX + barWidth/2}" y="${opexY - 4}" class="chart-value">$${group.opex.toFixed(2)}</text>
 
-        <!-- NOI Bar (Highlight Yellow) -->
+        <!-- Ecosystem NOI Bar -->
         <rect x="${noiX}" y="${noiY}" width="${barWidth}" height="${noiHeight}" class="chart-bar-high" rx="2" />
-        <text x="${noiX + barWidth/2}" y="${noiY - 4}" class="chart-value">$${group.noi.toFixed(2)}M</text>
+        <text x="${noiX + barWidth/2}" y="${noiY - 4}" class="chart-value" style="fill: var(--color-yellow);">$${group.noi.toFixed(2)}</text>
 
         <!-- Group Label -->
         <text x="${groupX + groupWidth/2}" y="${chartHeight + paddingTop + 18}" class="chart-label">${group.label}</text>
@@ -259,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <text x="92" y="1" class="chart-legend">OpEx</text>
         
         <rect x="140" y="-6" width="8" height="8" fill="var(--color-yellow)" rx="1"/>
-        <text x="152" y="1" class="chart-legend">Ecosystem NOI</text>
+        <text x="152" y="1" class="chart-legend" style="fill: var(--color-yellow);">Ecosystem NOI</text>
       </g>
     `;
 
